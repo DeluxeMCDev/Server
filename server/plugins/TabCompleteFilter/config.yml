@@ -1,0 +1,17 @@
+# Groups - Permission group for tcf.{group} (ex: tcf.default)
+# List of registered commands that will show in tab complete for group
+# The user will also need the perm for the command itself
+op-player-filter-bypass: true
+groups:
+  default:
+  - /help
+  - /msg
+  - /pm
+  - /w
+  - /reply
+  - /r
+  - /last
+  - /l
+  - /w
+  - /whisper
+  - /kill
