@@ -36,7 +36,7 @@ config.yml_backup*
 # Ignore all plugins in Bungeecord except specific ones
 Bungeecord/plugins/*
 !Bungeecord/plugins/TabCompleteFilter/
-!Bungeecord/plugins/FallBackFolia/
+!Bungeecord/plugins/FallBackServer/
 !Bungeecord/plugins/*.jar
 Bungeecord/plugins/LiteBans.jar
 Bungeecord/plugins/nullcordx*.jar
