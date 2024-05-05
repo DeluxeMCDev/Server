@@ -1,1 +1,0 @@
-05/04/24 17:10:10 - Stopped AquaWire riding in a vehicle above the nether ceiling @ Location{world=CraftWorld{name=world_nether},x=109.01245374959659,y=128.0,z=837.6397873885534,pitch=26.849974,yaw=-39.878906}

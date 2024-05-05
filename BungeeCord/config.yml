@@ -1,0 +1,151 @@
+# Configuration for listeners
+#
+# query_port - What port to run the UDP query on
+#
+# motd - The message to be displayed in the multiplayer menu when players ping the server
+#
+# tab_list - The tab list has a choice of 3 options:
+#  GLOBAL_PING: This shows all players connected to the proxy, complete with ping.
+#  GLOBAL: As above, but without updating their ping.
+#  SERVER: This shows the local players on the server you are connected to.
+#
+# query_enabled - Whether to enable UDP query.
+#
+# proxy_protocol - This allows the server to support the HAProxy PROXY protocol.
+# Most users shouldn't need to enable this.
+#
+# forced_hosts - Allows for redirection.
+# If the pvp.md-5.net sub-domain of the domain md-5.net is joined, it will bypass the default server and go to the server that is stated in the config, in this case directly to the pvp server.
+# Note: this requires you to make sub-domains forwarded to your BungeeCord address via the main Dynamic DNS as for your main domain.
+#
+# ping_passthrough - Whether to pass the ping through when we can reliably get the target server (force default server).
+# When true, Bungee displays the player count and MOTD of the backend server, when the forced hosts are queried.
+#
+# priorities - When a player connects for the first time or if force_default_server is enabled then BungeeCord goes through this list of servers from top to bottom and tries to forward the connection to each of them.
+# So if you would like to support multiple client versions, simply specify at least one server per version and BungeeCord will do the matching for you.
+#
+# bind_local_address - Whether the address Bungee uses to connect to your servers will be explicitly set to the address Bungee is listening on.
+# This serves no purpose unless your system has multiple IP addresses.
+#
+# host - The IP and Port in which the BungeeCord instance will be hosted on.
+# Use 0.0.0.0 to listen to all IPs (recommended).
+#
+# max_players - The max player limit shown in the minecraft client's multiplayer menu.
+# Note that this limit is fake, you can set it to 0, players will still be able to join. Look at player_limit above for a "real" player limit.
+#
+# tab_size - The amount of players that will show up in the tab list (Pressing tab on keyboard)
+#
+# force_default_server - If true, the player will always connect to the default servers specified in the priorities list when they join the server.
+# if false, the player will join the server they were last connected to. Note: forced_hosts does NOT override this.
+# To make the forced_hosts setting work, set this to false. Should be kept on for cracked server!
+listeners:
+  - query_port: 25580
+    motd: "&r&6DeluxeMC &r&8| &r&4Anarchy Server&r"
+    tab_list: GLOBAL_PING
+    query_enabled: false
+    proxy_protocol: false
+    forced_hosts:
+      deluxemc.net: "anarchy"
+    ping_passthrough: false
+    priorities:
+      - "anarchy"
+    bind_local_address: true
+    host: 0.0.0.0:25580
+    max_players: 100
+    tab_size: 60
+    force_default_server: true
+
+# Configuration for servers
+#
+# motd - The message to be displayed in the multiplayer menu when players ping the server.
+# address - The address of the backend server to which the proxy will try to connect the player
+# restricted - Prevents players from joining the server unless they have the bungeecord.server.[servername] permission
+servers:
+  anarchy:
+    motd: "&r&6DeluxeMC &r&8| &r&4Anarchy Server&r"
+    address: 172.18.0.1:25580
+    restricted: true
+  queue:
+    motd: "&r&6DeluxeMC &r&8| &r&4Anarchy Server&r"
+    address: 172.18.0.1:25581
+    restricted: true
+
+# Whether to enable IP (which forwards the players true IP to Bukkit, rather than the proxy IP) and UUID forwarding (which forwards the players true online-mode UUID to Bukkit, rather than an offline-mode username hash!)
+# If you're running an online-mode: true server, It is highly recommended you use this option.
+ip_forward: true
+
+# This makes the server send the IP of connecting players to Mojang to check if they are using a proxy to connect to the BungeeCord.
+prevent_proxy_connections: false
+
+# Whether the BungeeCord instance will authenticate with the Mojang servers. If set to false, cracked players will also be able to join your server.
+online_mode: true
+
+# Choose if your BungeeCord instance supports Forge clients or not.
+forge_support: true
+
+# Should a proxy reject connections made via transfer? This will prevent the player from connecting if he was sent to this proxy.
+reject_transfers: true
+
+# When a player ping a BungeeCord server, that ping is also included in the BungeeCord console.
+log_pings: false
+
+# When a player writes a BungeeCord command, that command is also included in the BungeeCord console.
+log_commands: false
+
+# Should the proxy always expect a secure profile from a client?
+enforce_secure_profile: false
+
+# After how many milliseconds to close the connection if no packet has been sent?
+timeout: 20000
+
+# If the packet is larger than this value, it will be compressed. Use -1 to disable compression.
+network_compression_threshold: 256
+
+# For how long in milliseconds BungeeCord should use cached results of server pings instead of manually pinging them to get the playercount. (-1 to disable)
+remote_ping_cache: -1
+
+# How long in milliseconds BungeeCord will try to ping a server to get the playercount before cancelling the connection.
+remote_ping_timeout: 5000
+
+# Once an IP has connected connection_throttle_limit times within connection_throttle milliseconds, it must wait connection_throttle milliseconds before attempting to connect again.
+# Example: With default settings, an IP may make 6 connection attempts in 4000ms (4s) before the IP is forced to wait 4s before connecting again.
+connection_throttle_limit: 6
+
+# The time delay before a client is allowed to connect again after a recent connection attempt to prevent attacks (in milliseconds).
+connection_throttle: 4000
+
+# How long in milliseconds BungeeCord will try to connect a player to a server before cancelling the connection.
+server_connect_timeout: 5000
+
+# Global player limit for your BungeeCord instance. If set to 0 or below, this will allow an unlimited amount of users to join.
+player_limit: -1
+
+# Use this to disable commands on your BungeeCord instance.
+disabled_commands:
+  - "disabledcommandhere"
+
+# These are the permissions of what commands or actions you can use within the proxy.
+# Please note, that these are different to Bukkit/Spigot permissions.
+# The permissions are group based and are used to attach players later on in the configuration.
+# All players will have ability to use the commands under default, those players given the admin group in the groups section are allowed to use the extra commands for BungeeCord as stated below that group.
+# Note each group only inherits default so you may need to put the same node in different groups if you add more.
+permissions:
+  admin:
+    - "bungeecord.command.alert"
+    - "bungeecord.command.end"
+    - "bungeecord.command.ip"
+    - "bungeecord.command.reload"
+    - "bungeecord.command.kick"
+
+# Here, you can assign players to a permission group that you created earlier in the configuration.
+# The format is groups, followed by each player, followed by each group they are in.
+# By default md_5 is given admin group, which gives permissions as defined by permissions section.
+# Every player has default. Only add players who need more than the default permissions.
+groups:
+  secretdev:
+    - "admin"
+
+# A unique value used for metrics statistics.
+# Not used by proxy anywhere, but can be used for plugins.
+stats: 345ae201-6ee3-43fd-a40f-b523da7a7d4d
+config_version: 1

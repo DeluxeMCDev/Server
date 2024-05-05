@@ -1,31 +1,44 @@
-server/world*
-server/eula.txt
-server/ops.json
-server/*.old
-server/usercache.json
-server/logs
-server/libraries
-server/config
-server/versions/
-server/banned-ips.json
-server/banned-players.json
-server/help.yml
-server/ops.json
-server/usercache.json
-server/version_history.json
-server/whitelist.json
-server/wepif.yml
-server/cache
+# Folia Server
+Folia/world*
+Folia/eula.txt
+Folia/ops.json
+Folia/*.old
+Folia/usercache.json
+Folia/logs
+Folia/libraries
+Folia/config
+Folia/versions/
+Folia/banned-ips.json
+Folia/banned-players.json
+Folia/help.yml
+Folia/version_history.json
+Folia/whitelist.json
+Folia/wepif.yml
+Folia/cache
 
-
-server/plugins/*
-!server/plugins/TabCompleteFilter/
-!server/plugins/NoCheatPlus/
-!server/plugins/IllegalStack/
-
-!server/plugins/*.jar
+# Ignore all plugins in server except specific ones
+Folia/plugins/*
+!Folia/plugins/TabCompleteFilter/
+!Folia/plugins/NoCheatPlus/
+!Folia/plugins/IllegalStack/
+!Folia/plugins/*.jar
 
 # Paid Plugins
-server/plugins/LiteBans.jar
+Folia/plugins/LiteBans.jar
 
 
+# Bungeecord Server
+Bungeecord/logs
+Bungeecord/NullCordX*
+config.yml_backup*
+!Bungeecord/nullcordx_config.yml
+
+# Ignore all plugins in Bungeecord except specific ones
+Bungeecord/plugins/*
+!Bungeecord/plugins/TabCompleteFilter/
+!Bungeecord/plugins/FallBackFolia/
+!Bungeecord/plugins/*.jar
+Bungeecord/plugins/LiteBans.jar
+Bungeecord/plugins/nullcordx*.jar
+
+Bungeecord/waterfall.yml
