@@ -35,3 +35,7 @@ Make sure to protect your server with IP Tables or UFW. If you're using the Pter
 For the Folia server, use the local IP to block external access to your backend server. For the Waterfall/NullCordX server, use your public IP so that players can connect directly.
 
 We use a proxy to ensure that we have a fallback service in case the server crashes.
+
+# Reserve Backup Server (Named "Queue")
+
+If the server stays offline for 24 hours, players in the waiting room will be moved to the reserved backup server. I suggest designating the backup server as either a queue or a lobby.

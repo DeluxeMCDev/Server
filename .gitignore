@@ -19,6 +19,7 @@ Folia/cache
 # Ignore all plugins in server except specific ones
 Folia/plugins/*
 !Folia/plugins/TabCompleteFilter/
+!Folia/plugins/FallBackServerAddon/
 !Folia/plugins/NoCheatPlus/
 !Folia/plugins/IllegalStack/
 !Folia/plugins/*.jar
@@ -42,3 +43,32 @@ Bungeecord/plugins/LiteBans.jar
 Bungeecord/plugins/nullcordx*.jar
 
 Bungeecord/waterfall.yml
+
+
+
+# Reserve Fallback Server 
+
+# Folia Server
+Queue/world*
+Queue/eula.txt
+Queue/ops.json
+Queue/*.old
+Queue/usercache.json
+Queue/logs
+Queue/libraries
+Queue/config
+Queue/versions/
+Queue/banned-ips.json
+Queue/banned-players.json
+Queue/help.yml
+Queue/version_history.json
+Queue/whitelist.json
+Queue/wepif.yml
+Queue/cache
+
+# Ignore all plugins in server except specific ones
+Queue/plugins/*
+!Queue/plugins/TabCompleteFilter/
+!Queue/plugins/FallBackServerAddon/
+!Queue/plugins/*.jar
+Queue/%3F
